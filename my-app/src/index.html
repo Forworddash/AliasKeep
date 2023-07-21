@@ -8,11 +8,116 @@
     <script defer src="render.js"></script>
   </head>
   <body>
-    <h1>AliasKeeper</h1>
-    <input type="text" id="username" placeholder="Username" />
-    <input type="text" id="password" placeholder="Password" />
-    <button id="login">Login</button>
-    <button id="register">Register</button>
-    
+
+    <!-- Tabs section -->
+    <div class="tabs">
+      <ul>
+        <li class="is-active"><a>Alias Generator</a></li>
+        <li><a>Music</a></li>
+        <li><a>Videos</a></li>
+        <li><a>Documents</a></li>
+      </ul>
+    </div>
+
+    <!-- Tab Content for Alias Generator -->
+    <div class="tab-content">
+      <div class="field">
+        <label class="label">Full Name</label>
+        <div class="control">
+          <input class="input" type="text" placeholder="Text input">
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Date of Birth</label>
+        <div class="control">
+          <input class="input" type="text" placeholder="Text input">
+        </div>
+      </div>
+
+      <button class="button" id="generator">Generate</button>
+    </div>
+
+    <!-- Tab Content for Music -->
+    <div class="tab-content" style="display:none;">
+      <div class="field">
+        <label class="label">Music Title</label>
+        <div class="control">
+          <input class="input" type="text" placeholder="Text input">
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Artist</label>
+        <div class="control">
+          <input class="input" type="text" placeholder="Text input">
+        </div>
+      </div>
+
+      <button class="button" id="music-generator">Generate Music</button>
+    </div>
+
+    <!-- Tab Content for Videos -->
+    <div class="tab-content" style="display:none;">
+      <div class="field">
+        <label class="label">Video Title</label>
+        <div class="control">
+          <input class="input" type="text" placeholder="Text input">
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Duration</label>
+        <div class="control">
+          <input class="input" type="text" placeholder="Text input">
+        </div>
+      </div>
+
+      <button class="button" id="video-generator">Generate Video</button>
+    </div>
+
+    <!-- Tab Content for Documents -->
+    <div class="tab-content" style="display:none;">
+      <div class="field">
+        <label class="label">Document Name</label>
+        <div class="control">
+          <input class="input" type="text" placeholder="Text input">
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Type</label>
+        <div class="control">
+          <input class="input" type="text" placeholder="Text input">
+        </div>
+      </div>
+
+      <button class="button" id="document-generator">Generate Document</button>
+    </div>
+
+    <script>
+      // JavaScript to handle tab switching
+      const tabs = document.querySelectorAll('.tabs li');
+      const tabContents = document.querySelectorAll('.tab-content');
+
+      tabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => {
+          // Hide all tab contents
+          tabContents.forEach(content => {
+            content.style.display = 'none';
+          });
+
+          // Show the selected tab content
+          tabContents[index].style.display = 'block';
+
+          // Set the active tab
+          tabs.forEach(t => {
+            t.classList.remove('is-active');
+          });
+          tab.classList.add('is-active');
+        });
+      });
+    </script>
+
   </body>
 </html>

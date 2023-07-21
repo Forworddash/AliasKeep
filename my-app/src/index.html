@@ -3,121 +3,112 @@
   <head>
     <meta charset="UTF-8" />
     <title>Hello World!</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.0/css/bulma.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.0/css/bulma.min.css"
+    />
     <link rel="stylesheet" href="index.css" />
-    <script defer src="render.js"></script>
+    
   </head>
   <body>
-
-    <!-- Tabs section -->
-    <div class="tabs">
-      <ul>
-        <li class="is-active"><a>Alias Generator</a></li>
-        <li><a>Music</a></li>
-        <li><a>Videos</a></li>
-        <li><a>Documents</a></li>
-      </ul>
-    </div>
-
-    <!-- Tab Content for Alias Generator -->
-    <div class="tab-content">
-      <div class="field">
-        <label class="label">Full Name</label>
-        <div class="control">
-          <input class="input" type="text" placeholder="Text input">
-        </div>
+    <div class="container is-fluid">
+      <!-- Tabs section -->
+      <div class="tabs">
+        <ul>
+          <li class="is-active"><a>Alias Generator</a></li>
+          <li><a>Database</a></li>
+          <li><a>Features</a></li>
+        </ul>
       </div>
 
-      <div class="field">
-        <label class="label">Date of Birth</label>
-        <div class="control">
-          <input class="input" type="text" placeholder="Text input">
+      <!-- Tab Content for Alias Generator -->
+      <div class="tab-content">
+        <div class="field">
+          <label class="label">Full Name</label>
+          <div class="control">
+            <input class="input" id="full-name-input" type="text" placeholder="Text input" />
+          </div>
         </div>
+
+        <div class="field">
+          <label class="label">Email Address</label>
+          <div class="control">
+            <input class="input" id="email-input" type="text" placeholder="Text input" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Date of Birth</label>
+          <div class="control">
+            <input class="input" type="text" placeholder="Text input" />
+          </div>
+        </div>
+
+        <button class="button" id="generator">Generate</button>
+        <button class="button" id="save">Save</button>
       </div>
 
-      <button class="button" id="generator">Generate</button>
-    </div>
-
-    <!-- Tab Content for Music -->
-    <div class="tab-content" style="display:none;">
-      <div class="field">
-        <label class="label">Music Title</label>
-        <div class="control">
-          <input class="input" type="text" placeholder="Text input">
+      <!-- Tab Content for Database -->
+      <div class="tab-content" style="display: none">
+        <div class="field">
+          <label class="label">Database Title</label>
+          <div class="control">
+            <input class="input" type="text" placeholder="Text input" />
+          </div>
         </div>
+
+        <div class="field">
+          <label class="label">Label</label>
+          <div class="control">
+            <input class="input" type="text" placeholder="Text input" />
+          </div>
+        </div>
+
+        <button class="button" id="save">Save</button>
       </div>
 
-      <div class="field">
-        <label class="label">Artist</label>
-        <div class="control">
-          <input class="input" type="text" placeholder="Text input">
+      <!-- Tab Content for Features -->
+      <div class="tab-content" style="display: none">
+        <div class="field">
+          <label class="label">Label</label>
+          <div class="control">
+            <input class="input" type="text" placeholder="Text input" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Feature</label>
+          <div class="control">
+            <input class="input" type="text" placeholder="Text input" />
+          </div>
         </div>
       </div>
-
-      <button class="button" id="music-generator">Generate Music</button>
-    </div>
-
-    <!-- Tab Content for Videos -->
-    <div class="tab-content" style="display:none;">
-      <div class="field">
-        <label class="label">Video Title</label>
-        <div class="control">
-          <input class="input" type="text" placeholder="Text input">
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">Duration</label>
-        <div class="control">
-          <input class="input" type="text" placeholder="Text input">
-        </div>
-      </div>
-
-      <button class="button" id="video-generator">Generate Video</button>
-    </div>
-
-    <!-- Tab Content for Documents -->
-    <div class="tab-content" style="display:none;">
-      <div class="field">
-        <label class="label">Document Name</label>
-        <div class="control">
-          <input class="input" type="text" placeholder="Text input">
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">Type</label>
-        <div class="control">
-          <input class="input" type="text" placeholder="Text input">
-        </div>
-      </div>
-
-      <button class="button" id="document-generator">Generate Document</button>
     </div>
 
     <script>
       // JavaScript to handle tab switching
-      const tabs = document.querySelectorAll('.tabs li');
-      const tabContents = document.querySelectorAll('.tab-content');
+      const tabs = document.querySelectorAll(".tabs li");
+      const tabContents = document.querySelectorAll(".tab-content");
 
       tabs.forEach((tab, index) => {
-        tab.addEventListener('click', () => {
+        tab.addEventListener("click", () => {
           // Hide all tab contents
-          tabContents.forEach(content => {
-            content.style.display = 'none';
+          tabContents.forEach((content) => {
+            content.style.display = "none";
           });
 
           // Show the selected tab content
-          tabContents[index].style.display = 'block';
+          tabContents[index].style.display = "block";
 
           // Set the active tab
-          tabs.forEach(t => {
-            t.classList.remove('is-active');
+          tabs.forEach((t) => {
+            t.classList.remove("is-active");
           });
-          tab.classList.add('is-active');
+          tab.classList.add("is-active");
         });
       });
     </script>
-
+    <!-- load renderer script -->
+    <script type="module" defer src="renderer.js"></script>
   </body>
 </html>

@@ -8,7 +8,6 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.0/css/bulma.min.css"
     />
     <link rel="stylesheet" href="index.css" />
-    
   </head>
   <body>
     <div class="container is-fluid">
@@ -26,14 +25,24 @@
         <div class="field">
           <label class="label">Full Name</label>
           <div class="control">
-            <input class="input" id="full-name-input" type="text" placeholder="Text input" />
+            <input
+              class="input"
+              id="full-name-input"
+              type="text"
+              placeholder="Text input"
+            />
           </div>
         </div>
 
         <div class="field">
           <label class="label">Email Address</label>
           <div class="control">
-            <input class="input" id="email-input" type="text" placeholder="Text input" />
+            <input
+              class="input"
+              id="email-input"
+              type="text"
+              placeholder="Text input"
+            />
           </div>
         </div>
 
@@ -85,10 +94,18 @@
       </div>
     </div>
 
+    <!-- link to login page, only show content if login successful -->
+    <a href="login.html">Login</a>
+
     <script>
       // JavaScript to handle tab switching
       const tabs = document.querySelectorAll(".tabs li");
       const tabContents = document.querySelectorAll(".tab-content");
+
+      // Hide tab contents by default
+      tabContents.forEach((content) => {
+        content.style.display = "none";
+      });
 
       tabs.forEach((tab, index) => {
         tab.addEventListener("click", () => {

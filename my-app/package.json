@@ -1,6 +1,6 @@
 {
-  "name": "my-app",
-  "productName": "my-app",
+  "name": "Alias-Keep 1.0.0",
+  "productName": "Alias-Keep 1.0.0",
   "version": "1.0.0",
   "description": "My Electron application description",
   "main": "src/index.js",

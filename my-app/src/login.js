@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
       if (username === defaultUsername && password === defaultPassword) {
         alert("Login successful!");
-        window.location.href = "main.html"; // Redirect to the main app page after successful login.
+        window.location.href = "index.html"; // Redirect to the main app page after successful login.
       } else {
         alert("Invalid username or password. Please try again.");
       }

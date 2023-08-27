@@ -11,10 +11,17 @@ document.addEventListener("DOMContentLoaded", function () {
       // Set your default username and password
       const defaultUsername = "admin";
       const defaultPassword = "password";
+
+      // Match both passwords
+      if (password === password2) {
+        alert("Passwords match!");
+      } else {
+        alert("Passwords do not match. Please try again.");
+      }
   
       if (username === defaultUsername && password === defaultPassword) {
-        alert("Login successful!");
-        window.location.href = "index.html"; // Redirect to the main app page after successful login.
+        alert("Account created successfully!");
+        window.location.href = "login.html"; // Redirect to the login page after successful account creation.
       } else {
         alert("Invalid username or password. Please try again.");
       }

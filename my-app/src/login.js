@@ -18,5 +18,12 @@ document.addEventListener("DOMContentLoaded", function () {
         alert("Invalid username or password. Please try again.");
       }
     });
+
+    // event listener for create account button with id of 'create'
+    const createButton = document.getElementById("create");
+    createButton.addEventListener("click", function (event) {
+      // if the create 'button' is pressed, take them to account creation page
+      event.preventDefault();
+      window.location.href = "createaccount.html";
   });
-  
+}); 

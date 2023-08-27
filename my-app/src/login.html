@@ -1,50 +1,69 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="UTF-8">
-  <title>Login</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.0/css/bulma.min.css">
-</head>
-<body>
-  <div class="columns is-vcentered">
-   
-    <div class="column">
-      <div class="">
-        <h1 class="title">Alias Keeper</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.0/css/bulma.min.css"
+    />
+  </head>
+  <body>
+    <div class="columns is-vcentered">
+      <div class="column block">
+        <div class="block">
+          <h1 class="title">Alias Keeper</h1>
+        </div>
+        <div class="block">
+          <p class="subtitle is-5">
+            The purpose of alias keeper is to save and generate fake aliases and
+            the information related to them.
+          </p>
+        </div>
+        <div class="block">
+          <p class="subtitle is-5">
+            If you have any bugs to report please email them to
+            samuel@samuelbaker.ca
+          </p>
+        </div>
       </div>
-      <div class="">
-        <p class="subtitle is-5">The purpose of alias keeper is to save and generate fake aliases and the information related to them.</p>
-      </div>
-      <div class="">
-        <p class="subtitle is-5">If you have any bugs to report please email them to samuel@samuelbaker.ca</p>
-      </div> 
-    </div>
-    
-    <div class="column">
-      <h1 class="title">Login</h1>
-      <form id="login-form">
-        <div class="field">
-          <label class="label">Username</label>
-          <div class="control">
-            <input class="input" type="text" id="username" placeholder="Username">
-          </div>
-        </div>
-        <div class="field">
-          <label class="label">Password</label>
-          <div class="control">
-            <input class="input" type="password" id="password" placeholder="Password">
-          </div>
-        </div>
-        <div class="field">
-          <div class="control">
-            <button class="button is-primary" type="submit">Login</button>
-            <button class="button is-primary" type="submit">Create</button>
-          </div>
-        </div>
-      </form>
-    </div>
 
-  </div>
-  <script src="login.js"></script>
-</body>
+      <div class="column">
+        <div class="block">
+          <h1 class="title">Login</h1>
+        </div>
+        <div class="box container">
+          <form id="login-form">
+            <div class="block">
+              <label class="label">Username</label>
+              <div class="control">
+                <input
+                  class="input"
+                  type="text"
+                  id="username"
+                  placeholder="Username"
+                />
+              </div>
+            </div>
+            <div class="block">
+              <label class="label">Password</label>
+              <div class="control">
+                <input
+                  class="input"
+                  type="password"
+                  id="password"
+                  placeholder="Password"
+                />
+              </div>
+            </div>
+            <div class="control">
+              <button class="button is-primary" type="submit">Login</button>
+              <button class="button is-primary" type="submit">Create</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="login.js"></script>
+  </body>
 </html>

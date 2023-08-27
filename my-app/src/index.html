@@ -112,6 +112,10 @@
           </div>
         </div>
       </div>
+
+      <button class="button is-primary is-right" type="button" id="cancel">Cancel</button>
+
+
     </div>
 
     <!-- link to login page, only show content if login successful -->
@@ -126,6 +130,13 @@
       // tabContents.forEach((content) => {
       //   content.style.display = "none";
       // });
+
+      // go to login page if cancel button is pressed
+      const cancelButton = document.getElementById("cancel");
+      cancelButton.addEventListener("click", function (event) {
+      event.preventDefault();
+      window.location.href = "login.html";
+      });
 
       tabs.forEach((tab, index) => {
         tab.addEventListener("click", () => {

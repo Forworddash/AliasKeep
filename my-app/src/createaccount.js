@@ -18,12 +18,11 @@ document.addEventListener("DOMContentLoaded", function () {
         alert("Passwords do not match. Please try again.");
       }
     });
-      // Go to login page if account is created successfully
-      // if (account === true) {
-      //   alert("Account created successfully!");
-      //   window.location.href = "login.html"; // Redirect to the login page after successful account creation.
-      // } else {
-      //   alert("Invalid username or password. Please try again.");
-      // }
     
+      // go to login page if cancel button is pressed
+      const cancelButton = document.getElementById("cancel");
+      cancelButton.addEventListener("click", function (event) {
+      event.preventDefault();
+      window.location.href = "login.html";
+      });
   });

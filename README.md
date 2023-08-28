@@ -4,10 +4,11 @@
 The primary purpose of the application is to help users manage and store information related to fake aliases, including details such as fake names, email addresses, phone numbers, and dates of birth. 
 The application features a user-friendly interface with different tabs for managing various aspects as well as a rudimentary login screen.
 
-# Incstructions
+# Instructions
 Open root directory
 run 'npm start'
-  
+
+# Preview
 Login Page has default credentials set, username: admin | password: password
 <img width="569" alt="login screen" src="https://github.com/Forworddash/AliasKeep/assets/59719097/4b091f74-840b-496c-9665-26e7adbfcb6b">
 

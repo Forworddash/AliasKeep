@@ -21,6 +21,8 @@
       </div>
 
       <!-- Tab Content for Alias Generator -->
+
+      <!-- Full name section -->
       <div class="tab-content">
         <div class="field">
           <label class="label">Full Name</label>
@@ -38,7 +40,7 @@
         <div class="field">
           <label class="label">Email Address</label>
           <div class="control has-icons-left has-icons-right">
-            <input class="input" type="email" placeholder="Email">
+            <input class="input" type="email" id="email-input" placeholder="Email">
             <span class="icon is-small is-left">
               <i class="fas fa-envelope"></i>
             </span>
@@ -52,7 +54,7 @@
         <div class="field">
           <label class="label">Phone Number</label>
           <div class="control has-icons-left has-icons-right">
-            <input class="input" type="tel" placeholder="Phone Number">
+            <input class="input" type="tel" id="phone-number-input" placeholder="Phone Number">
             <span class="icon is-small is-left">
               <i class="fas fa-phone"></i>
             </span>
@@ -61,12 +63,11 @@
             </span>
           </div>
 
-
         <!-- DOB section -->
         <div class="field">
           <label class="label">Date of Birth</label>
           <div class="control">
-            <input class="input" type="text" placeholder="Text input" />
+            <input class="input" type="text" id="dob-input" placeholder="Text input" />
           </div>
         </div>
 
@@ -78,44 +79,22 @@
 
 
       <!-- Tab Content for Database -->
-      <div class="tab-content" style="display: none">
-        <div class="field">
-          <label class="label">Database Title</label>
-          <div class="control">
-            <input class="input" type="text" placeholder="Text input" />
-          </div>
-        </div>
+      <div id="container">
+        <div class="tab-content" id="tab-2">
+        <!-- <div class="container">
+          
+        </div> -->
 
-        <div class="field">
-          <label class="label">Label</label>
-          <div class="control">
-            <input class="input" type="text" placeholder="Text input" />
-          </div>
         </div>
-
-        <button class="button" id="save">Save</button>
       </div>
 
       <!-- Tab Content for Features -->
-      <div class="tab-content" style="display: none">
-        <div class="field">
-          <label class="label">Label</label>
-          <div class="control">
-            <input class="input" type="text" placeholder="Text input" />
-          </div>
-        </div>
-
-        <div class="field">
-          <label class="label">Feature</label>
-          <div class="control">
-            <input class="input" type="text" placeholder="Text input" />
-          </div>
-        </div>
+      <div class="tab-content" id="tab-3" style="display: none">
+        <div class="container">
       </div>
-
+      
+      
       <button class="button is-primary is-right" type="button" id="cancel">Back</button>
-
-
     </div>
 
     <!-- link to login page, only show content if login successful -->

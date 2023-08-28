@@ -9,7 +9,6 @@ Open root directory
 run 'npm start'
 
 # Preview
-
 ## Login Page
 Login Page has default credentials set, username: admin | password: password
 <img width="569" alt="login screen" src="https://github.com/Forworddash/AliasKeep/assets/59719097/4b091f74-840b-496c-9665-26e7adbfcb6b">

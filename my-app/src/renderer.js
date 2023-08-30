@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   const saveButton = document.getElementById("save");
+  const deleteButton = document.getElementById("delete-button");
   
   saveButton.addEventListener("click", function (event) {
     event.preventDefault();
@@ -41,15 +42,35 @@ document.addEventListener("DOMContentLoaded", function () {
   const savedUserDataArray = JSON.parse(localStorage.getItem("userDataArray")) || [];
   
   // load user data from local storage if available
-  savedUserDataArray.forEach(userData => {
+  savedUserDataArray.forEach((userData, index) => {
     const databaseTab = document.getElementById('tab-2');
 
     // display user data entry in the 'database' tab
     const userDataEntry = document.createElement('div');
     userDataEntry.classList.add('user-data-entry');
+    userDataEntry.classList.add('box');
 
-    userDataEntry.innerHTML = `
-      <h3 class="title is-4">${userData.fullName}</h3>
+    // create check box and label for each entry
+    const checkBox = document.createElement('input');
+    checkBox.type = 'checkbox';
+    checkBox.dataset.index = index;
+
+    const label = document.createElement('label');
+    label.appendChild(checkBox);
+    label.appendChild(document.createTextNode(` ${userData.fullName}`));
+
+    // append the label to the user data entry
+    userDataEntry.appendChild(label);
+  //   userDataEntry.innerHTML += `
+  //   <p>Email: ${userData.email}</p>
+  //   <p>Phone: ${userData.phoneNumber}</p>
+  //   <p>Date of Birth: ${userData.dob}</p>
+  // `;
+
+
+
+    userDataEntry.innerHTML += `
+      <h3 class="title">${userData.fullName}</h3>
       <p>Email: ${userData.email}</p>
       <p>Phone: ${userData.phoneNumber}</p>
       <p>Date of Birth: ${userData.dob}</p>
@@ -57,6 +78,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
     databaseTab.appendChild(userDataEntry);
   });
+
+
+  // hand delete button click at the top
+  deleteButton.addEventListener('click', function() {
+    const selectedIndexes = Array.from(document.querySelectorAll('.user-data-entry input[type="checkbox"]:checked')).map(checkbox => parseInt(checkbox.dataset.index));
+
+    // filter out selected entries from the array and update local storage
+    const updatedUserDataArray = savedUserDataArray.filter((userData, index) => !selectedIndexes.includes(index));
+    localStorage.setItem('userDataArray', JSON.stringify(updatedUserDataArray));
+
+    location.reload(); // reload page to reflect changes
+  });
+
 
   const databaseTab = document.querySelector('.tabs li:nth-child(2)');
 

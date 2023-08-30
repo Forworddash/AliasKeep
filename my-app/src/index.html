@@ -20,6 +20,11 @@
         </ul>
       </div>
 
+      <!-- <div class="block">
+        <button class="button is-primary" type="button" id="cancel">
+          Home
+        </button>
+      </div> -->
       <!-- Tab Content for Alias Generator -->
 
       <!-- Full name section -->
@@ -40,7 +45,12 @@
         <div class="field">
           <label class="label">Email Address</label>
           <div class="control">
-            <input class="input" type="email" id="email-input" placeholder="Email">
+            <input
+              class="input"
+              type="email"
+              id="email-input"
+              placeholder="Email"
+            />
             <!-- <span class="icon is-small is-left">
               <i class="fas fa-envelope"></i>
             </span>
@@ -54,7 +64,12 @@
         <div class="field">
           <label class="label">Phone Number</label>
           <div class="control">
-            <input class="input" type="tel" id="phone-number-input" placeholder="Phone Number">
+            <input
+              class="input"
+              type="tel"
+              id="phone-number-input"
+              placeholder="Phone Number"
+            />
             <!-- <span class="icon is-small is-left">
               <i class="fas fa-phone"></i>
             </span> -->
@@ -67,7 +82,12 @@
         <div class="field">
           <label class="label">Date of Birth</label>
           <div class="control">
-            <input class="input" type="text" id="dob-input" placeholder="Text input" />
+            <input
+              class="input"
+              type="text"
+              id="dob-input"
+              placeholder="Text input"
+            />
           </div>
         </div>
 
@@ -77,61 +97,79 @@
       </div>
 
 
+
+
+
+
+
       <!-- Tab Content for Database -->
       <div class="tab-content" id="tab-2">
-        <div></div>
+          <button class="button is-primary" type="button" id="delete-button">Delete Selected</button>
+          <div class="user-data-entry"
+        <div class=""></div>
       </div>
+
+
+
+
+
 
       <!-- Tab Content for Features -->
       <div class="tab-content" id="tab-3">
-      
+
       </div>
-      
-      
-      <button class="button is-primary is-right" type="button" id="cancel">Back</button>
     </div>
+
+
+
+
+
+
+
+
+
+
+
 
     <!-- link to login page, only show content if login successful -->
     <!-- <a href="login.html">Login</a> -->
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-          // JavaScript to handle tab switching
-          const tabs = document.querySelectorAll(".tabs li");
-          const tabContents = document.querySelectorAll(".tab-content");
+        // JavaScript to handle tab switching
+        const tabs = document.querySelectorAll(".tabs li");
+        const tabContents = document.querySelectorAll(".tab-content");
 
-          // Hide tab contents by default
-          // tabContents.forEach((content) => {
-          //   content.style.display = "none";
-          // });
+        // Hide tab contents by default
+        // tabContents.forEach((content) => {
+        //   content.style.display = "none";
+        // });
 
-          // go to login page if cancel button is pressed
-          const cancelButton = document.getElementById("cancel");
-          cancelButton.addEventListener("click", function (event) {
-          event.preventDefault();
-          window.location.href = "login.html";
-          });
+        // go to login page if cancel button is pressed
+        // const cancelButton = document.getElementById("cancel");
+        // cancelButton.addEventListener("click", function (event) {
+        //   event.preventDefault();
+        //   window.location.href = "login.html";
+        // });
 
-          tabs.forEach((tab, index) => {
-            tab.addEventListener("click", () => {
-              // Hide all tab contents
-              tabContents.forEach((content) => {
-                content.style.display = "none";
-              });
-
-              // Show the selected tab content
-              tabContents[index].style.display = "block";
-
-              // Set the active tab
-              tabs.forEach((t) => {
-                t.classList.remove("is-active");
-              });
-              tab.classList.add("is-active");
+        tabs.forEach((tab, index) => {
+          tab.addEventListener("click", () => {
+            // Hide all tab contents
+            tabContents.forEach((content) => {
+              content.style.display = "none";
             });
+
+            // Show the selected tab content
+            tabContents[index].style.display = "block";
+
+            // Set the active tab
+            tabs.forEach((t) => {
+              t.classList.remove("is-active");
+            });
+            tab.classList.add("is-active");
           });
         });
-
-
+      });
     </script>
     <!-- load renderer script -->
     <script type="module" defer src="renderer.js"></script>

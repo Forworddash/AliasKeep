@@ -57,7 +57,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const label = document.createElement('label');
     label.appendChild(checkBox);
-    label.appendChild(document.createTextNode(` ${userData.fullName}`));
+    label.appendChild(document.createTextNode(` Entry ${index + 1}`)); 
+    // ${userData.fullName}
 
     // append the label to the user data entry
     userDataEntry.appendChild(label);
@@ -80,6 +81,9 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 
+
+
+
   // hand delete button click at the top
   deleteButton.addEventListener('click', function() {
     const selectedIndexes = Array.from(document.querySelectorAll('.user-data-entry input[type="checkbox"]:checked')).map(checkbox => parseInt(checkbox.dataset.index));
@@ -93,6 +97,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   const databaseTab = document.querySelector('.tabs li:nth-child(2)');
+
+
+
 
   databaseTab.addEventListener('click', function() {
     // show the existing user data entries in the 'database' tab

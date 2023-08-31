@@ -42,52 +42,15 @@ document.addEventListener("DOMContentLoaded", function () {
   const savedUserDataArray = JSON.parse(localStorage.getItem("userDataArray")) || [];
   
   // load user data from local storage if available
-  savedUserDataArray.forEach((userData, index) => {
-    const databaseTab = document.getElementById('tab-2');
-
-    // display user data entry in the 'database' tab
-    const userDataEntry = document.createElement('div');
-    userDataEntry.classList.add('user-data-entry');
-    userDataEntry.classList.add('box');
-
-    // create check box and label for each entry
-    const checkBox = document.createElement('input');
-    checkBox.type = 'checkbox';
-    checkBox.dataset.index = index;
-
-    const label = document.createElement('label');
-    label.appendChild(checkBox);
-    label.appendChild(document.createTextNode(` Entry ${index + 1}`)); 
-    // ${userData.fullName}
-
-    // append the label to the user data entry
-    userDataEntry.appendChild(label);
-  //   userDataEntry.innerHTML += `
-  //   <p>Email: ${userData.email}</p>
-  //   <p>Phone: ${userData.phoneNumber}</p>
-  //   <p>Date of Birth: ${userData.dob}</p>
-  // `;
+  
 
 
-
-    userDataEntry.innerHTML += `
-      <h3 class="title">${userData.fullName}</h3>
-      <p>Email: ${userData.email}</p>
-      <p>Phone: ${userData.phoneNumber}</p>
-      <p>Date of Birth: ${userData.dob}</p>
-    `;
-
-    databaseTab.appendChild(userDataEntry);
-  });
-
-
-
-
-
-  // hand delete button click at the top
+  // handle delete button click at the top
   deleteButton.addEventListener('click', function() {
     const selectedIndexes = Array.from(document.querySelectorAll('.user-data-entry input[type="checkbox"]:checked')).map(checkbox => parseInt(checkbox.dataset.index));
 
+    // const selectAllIndexes = document.querySelectorAll('.select-all input[type="checkbox"]');
+    
     // filter out selected entries from the array and update local storage
     const updatedUserDataArray = savedUserDataArray.filter((userData, index) => !selectedIndexes.includes(index));
     localStorage.setItem('userDataArray', JSON.stringify(updatedUserDataArray));
@@ -95,16 +58,49 @@ document.addEventListener("DOMContentLoaded", function () {
     location.reload(); // reload page to reflect changes
   });
 
-
   const databaseTab = document.querySelector('.tabs li:nth-child(2)');
 
-
-
-
   databaseTab.addEventListener('click', function() {
+
+    // clear the 'database' tab
+    const databaseContent = document.getElementById('tab-2');
+    databaseContent.innerHTML = '';
+
+    savedUserDataArray.forEach((userData, index) => {
+      // const databaseTab = document.getElementById('tab-2');
+  
+      // display user data entry in the 'database' tab
+      const userDataEntry = document.createElement('div');
+      userDataEntry.classList.add('user-data-entry');
+      userDataEntry.classList.add('box');
+  
+      // create check box and label for each entry
+      const checkBox = document.createElement('input');
+      checkBox.type = 'checkbox';
+      checkBox.dataset.index = index;
+  
+      const label = document.createElement('label');
+      label.appendChild(checkBox);
+      label.appendChild(document.createTextNode(` Entry ${index + 1}`)); 
+  
+      // append the label to the user data entry
+      userDataEntry.appendChild(label);
+  
+      userDataEntry.innerHTML += `
+        <h3 class="title">${userData.fullName}</h3>
+        <p>Email: ${userData.email}</p>
+        <p>Phone: ${userData.phoneNumber}</p>
+        <p>Date of Birth: ${userData.dob}</p>
+      `;
+  
+      databaseContent.appendChild(userDataEntry);
+    });
+
+
+
     // show the existing user data entries in the 'database' tab
-    const databaseTab = document.getElementById('tab-2');
-    const userDataEntries = databaseTab.querySelectorAll('.user-data-entry');
+    // const databaseTab = document.getElementById('tab-2');
+    const userDataEntries = databaseContent.querySelectorAll('.user-data-entry');
     userDataEntries.forEach(entry => {
       entry.style.display = 'block';
     });

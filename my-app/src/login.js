@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const loginForm = document.getElementById("login-form");
-  
+    const loginButton = document.getElementById("login-button");
     
     // Retrieve stored username and password from local storage
     const storedUsername = localStorage.getItem("createdUsername");
@@ -9,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const defaultUsername = "admin";
     const defaultPassword = "password";
     
-    loginForm.addEventListener("submit", function (event) {
+    loginButton.addEventListener("click", function (event) {
       event.preventDefault();
   
       const username = document.getElementById("username").value;
@@ -24,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // event listener for create account button with id of 'create'
-    const createButton = document.getElementById("create");
+    const createButton = document.getElementById("create-page");
     createButton.addEventListener("click", function (event) {
       // if the create 'button' is pressed, take them to account creation page
       event.preventDefault();

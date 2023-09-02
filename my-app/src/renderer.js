@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const saveButton = document.getElementById("save");
   const deleteButton = document.getElementById("delete-button");
   const databaseTab = document.querySelector('.tabs li:nth-child(2)');
-  const selectAllIndexes = document.querySelectorAll('.select-all input[type="checkbox"]');
+  // const selectAllIndexes = document.querySelectorAll('.select-all input[type="checkbox"]');
 
   // Load saved user data from local storage if available
   let savedUserDataArray = JSON.parse(localStorage.getItem("userDataArray")) || [];
@@ -59,19 +59,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-  // Event listener for deleting user data
+  // // Event listener for deleting user data
+  // deleteButton.addEventListener('click', function() {
+  //   const selectedIndexes = Array.from(document.querySelectorAll('.user-data-entry input[type="checkbox"]:checked')).map(checkbox => parseInt(checkbox.dataset.index));
+    
+  //   // filter out selected entries from the array and update local storage
+  //   savedUserDataArray = savedUserDataArray.filter((userData, index) => !selectedIndexes.includes(index));
+  //   localStorage.setItem('userDataArray', JSON.stringify(savedUserDataArray));
+
+  //   // reload page to reflect changes
+  //   // location.reload(); 
+  // });
+
+ // hand delete button click at the top
   deleteButton.addEventListener('click', function() {
     const selectedIndexes = Array.from(document.querySelectorAll('.user-data-entry input[type="checkbox"]:checked')).map(checkbox => parseInt(checkbox.dataset.index));
-    
+
     // filter out selected entries from the array and update local storage
-    savedUserDataArray = savedUserDataArray.filter((userData, index) => !selectedIndexes.includes(index));
-    localStorage.setItem('userDataArray', JSON.stringify(savedUserDataArray));
+    const updatedUserDataArray = savedUserDataArray.filter((userData, index) => !selectedIndexes.includes(index));
+    localStorage.setItem('userDataArray', JSON.stringify(updatedUserDataArray));
 
-    // reload page to reflect changes
-    // location.reload(); 
+    location.reload(); // reload page to reflect changes
   });
-
-
 
 
 

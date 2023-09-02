@@ -88,12 +88,10 @@
 
       <!-- Tab 2 Database -->
       <div class="tab-content" id="tab-2">
-        <div>
           <button class="button is-primary" type="button" id="delete-button">
             Delete Selected
           </button>
           <label><input type="checkbox" id="select-all" />Select All</label>
-        </div>
         <div class="user-data-entry">
           <!-- User data entries will be dynamically added here -->
         </div>
@@ -121,15 +119,9 @@
         //   content.style.display = "none";
         // });
 
-        // go to login page if cancel button is pressed
-        // const cancelButton = document.getElementById("cancel");
-        // cancelButton.addEventListener("click", function (event) {
-        //   event.preventDefault();
-        //   window.location.href = "login.html";
-        // });
-
         tabs.forEach((tab, index) => {
           tab.addEventListener("click", () => {
+            
             // Hide all tab contents
             tabContents.forEach((content) => {
               content.style.display = "none";

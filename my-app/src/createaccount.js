@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const createaccountForm = document.getElementById("createaccount-form");
-
-    createaccountForm.addEventListener("submit", function (event) {
+    const createAccount = document.getElementById("create-acccount");
+    
+    createAccount.addEventListener("click", function (event) {
       event.preventDefault();
   
       const createdUsername = document.getElementById("username").value;
@@ -25,8 +25,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // go to login page if cancel button is pressed
       const cancelButton = document.getElementById("cancel");
+      
       cancelButton.addEventListener("click", function (event) {
-      event.preventDefault();
-      window.location.href = "login.html";
+        event.preventDefault();
+        window.location.href = "login.html";
       });
 });

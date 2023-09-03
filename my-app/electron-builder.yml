@@ -1,0 +1,10 @@
+appId: com.aliaskeep
+productName: AliasKeep
+directories:
+  output: ./dist
+files:
+  - "dist/**/*"
+nsis:
+  oneClick: false
+  allowElevation: true
+  perMachine: true

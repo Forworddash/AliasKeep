@@ -4,6 +4,11 @@ document.addEventListener("DOMContentLoaded", function () {
   const databaseTab = document.getElementById('tab-2');
   const tabs = document.querySelectorAll(".tabs li");
   const tabContents = document.querySelectorAll(".tab-content");
+  const savedUserDataArray = JSON.parse(localStorage.getItem("userDataArray")) || [];
+
+
+
+  // TABS
 
   // tab switching
   tabs.forEach((tab, index) => {
@@ -24,7 +29,13 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  
 
+
+
+
+
+  // SAVE BUTTON 
 
   // save user data to local storage
   saveButton.addEventListener("click", function (event) {
@@ -53,7 +64,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // save the updated array back to local storage
     localStorage.setItem("userDataArray", JSON.stringify(existingUserDataArray));
     alert("User data saved successfully!");
-
     // Scroll to the newly added entry
     // const newUserEntry = document.querySelector('.user-data-entry:last-child');
     // newUserEntry.scrollIntoView({ behavior: 'smooth' });
@@ -63,8 +73,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 100);
   });
 
-  // load user data from local storage if available
-  const savedUserDataArray = JSON.parse(localStorage.getItem("userDataArray")) || [];
+
+
+
+
+
+
+
+  // DISPLAY SAVED USER DATA
   
   // load user data from local storage if available
   savedUserDataArray.forEach((userData, index) => {
@@ -78,8 +94,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const checkBox = document.createElement('input');
     checkBox.type = 'checkbox';
     checkBox.dataset.index = index;
-
     const label = document.createElement('label');
+    
     label.appendChild(checkBox);
     label.appendChild(document.createTextNode(` Entry ${index + 1}`)); 
 
@@ -96,31 +112,48 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 
-  // hand delete button click at the top
-  deleteButton.addEventListener('click', function() {
-    const selectedIndexes = Array.from(document.querySelectorAll('.user-data-entry input[type="checkbox"]:checked')).map(checkbox => parseInt(checkbox.dataset.index));
 
+
+
+
+  // DELETE BUTTON 
+
+  // hand delete button click at the top
+  deleteButton.addEventListener('click', function(event) {
+
+    event.preventDefault();
+
+    const selectedIndexes = Array.from(document.querySelectorAll('.user-data-entry input[type="checkbox"]:checked')).map(checkbox => parseInt(checkbox.dataset.index));
+    
     // filter out selected entries from the array and update local storage
     const updatedUserDataArray = savedUserDataArray.filter((userData, index) => !selectedIndexes.includes(index));
+    
     localStorage.setItem('userDataArray', JSON.stringify(updatedUserDataArray));
-
     location.reload(); // reload page to reflect changes
+    
+    return false;
   });
+
+
+
+
+
+
 
 
 
 
   // const databaseTab = document.querySelector('.tabs li:nth-child(2)');
 
-  databaseTab.addEventListener('click', function() {
-    // show the existing user data entries in the 'database' tab
-    const userDataEntries = databaseTab.querySelectorAll('.user-data-entry');
-    userDataEntries.forEach(entry => {
-      entry.style.display = 'block';
-    });
-  });
+  // databaseTab.addEventListener('click', function() {
+    
+  //   // show the existing user data entries in the 'database' tab
+  //   const userDataEntries = databaseTab.querySelectorAll('.user-data-entry');
+    
+  //   userDataEntries.forEach(entry => {
+  //     entry.style.display = 'block';
+  //   });
 
-
-
+  // });
 
 });

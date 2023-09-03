@@ -66,6 +66,7 @@
           <button class="button" id="generator">Generate</button>
           <button class="button" id="save">Save</button>
         </div>
+        
       </div>
 
 
@@ -91,28 +92,45 @@
 
       <!-- Tab Content for Settings -->
       <div class="tab-content" id="tab-3">
-      <div class="block">
-          <!-- list the settings here with a label and checkbox to check if its enabled/disabled -->
+        <div class="block">
+          
+          
+          <!-- First option -->
           <div class="field">
             <label class="checkbox">
               <input type="checkbox" id="setting-1">
-              Setting 1
+               Dark Mode
             </label>
           </div>
+          
+          <!-- Second option -->
           <div class="field">
-            <label class="checkbox">
-              <input type="checkbox" id="setting-2">
-              Setting 2
-            </label>
+            <label class="label">Language</label>
+            <div class="control">
+              <div class="select">
+                <select id="language">
+                  <option>English</option>
+                  <option>French</option>
+                  <option>Japanese</option>
+                </select>
+              </div>
+            </div>
           </div>
+
+          <!-- Third option -->
           <div class="field">
             <label class="checkbox">
               <input type="checkbox" id="setting-3">
-              Setting 3
+              Delete All User Data
             </label>
           </div>
+      
+          <!-- Save settings button -->
+          <div class="block">
+            <button class="button is-primary" type="button" id="save-settings">Save</button>
+          </div>
+        </div>
       </div>
-    </div>
 
 
     <!-- load renderer script -->

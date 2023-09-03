@@ -2,7 +2,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const saveButton = document.getElementById("save");
   const deleteButton = document.getElementById("delete-button");
   const databaseTab = document.getElementById('tab-2');
-
+  const selectAllCheckbox = document.getElementById('select-all');
+  const selectedIndexes = [];
   // const tabs = document.querySelectorAll(".tabs li");
   // const tabContents = document.querySelectorAll(".tab-content");
   const savedUserDataArray = JSON.parse(localStorage.getItem("userDataArray")) || [];
@@ -153,6 +154,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+
+  selectAllCheckbox.addEventListener('click', function() {
+    const checkboxes = document.querySelectorAll('.user-data-entry input[type="checkbox"]');
+    checkboxes.forEach(checkbox => {
+      checkbox.checked = selectAllCheckbox.checked;
+    });
+
+  });
+
+    // if (selectAllCheckbox.checked) {
+    //   for (let i = 0; i < savedUserDataArray.length; i++) {
+    //     selectedIndexes.push(i);
+    //   }
+    // }
+
+
   // DELETE BUTTON 
 
   // hand delete button click at the top
@@ -162,6 +179,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const selectedIndexes = Array.from(document.querySelectorAll('.user-data-entry input[type="checkbox"]:checked')).map(checkbox => parseInt(checkbox.dataset.index));
     
+    // check if all entries selected, before you delete add a message to warn
+    if (selectedIndexes.length === savedUserDataArray.length) {
+      const confirmDelete = confirm('Are you sure you want to delete all entries?');
+      if (!confirmDelete) return false;
+    }
+    
+
+
+
     // filter out selected entries from the array and update local storage
     const updatedUserDataArray = savedUserDataArray.filter((userData, index) => !selectedIndexes.includes(index));
     

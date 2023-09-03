@@ -11,6 +11,7 @@
   </head>
   <body>
     <div class="container is-fluid">
+      
       <!-- Tabs section -->
       <div class="tabs">
         <ul>
@@ -20,15 +21,10 @@
         </ul>
       </div>
 
-      <!-- <div class="block">
-        <button class="button is-primary" type="button" id="cancel">
-          Home
-        </button>
-      </div> -->
-      <!-- Tab Content for Alias Generator -->
 
-      <!-- Full name section -->
-      <div class="tab-content">
+      <div class="tab-content" id="tab-1">
+        
+        <!-- Full name section -->
         <div class="field">
           <label class="label">Full Name</label>
           <div class="control">
@@ -45,18 +41,7 @@
         <div class="field">
           <label class="label">Email Address</label>
           <div class="control">
-            <input
-              class="input"
-              type="email"
-              id="email-input"
-              placeholder="Email"
-            />
-            <!-- <span class="icon is-small is-left">
-              <i class="fas fa-envelope"></i>
-            </span>
-            <span class="icon is-small is-right">
-              <i class="fas fa-check"></i>
-            </span> -->
+            <input class="input" type="email" id="email-input" placeholder="Email"/>
           </div>
         </div>
 
@@ -64,36 +49,23 @@
         <div class="field">
           <label class="label">Phone Number</label>
           <div class="control">
-            <input
-              class="input"
-              type="tel"
-              id="phone-number-input"
-              placeholder="Phone Number"
-            />
-            <!-- <span class="icon is-small is-left">
-              <i class="fas fa-phone"></i>
-            </span> -->
-            <!-- <span class="icon is-small is-right">
-              <i class="fas fa-check"></i>
-            </span> -->
+            <input class="input" type="tel" id="phone-number-input" placeholder="Phone Number"/>
           </div>
         </div>
+        
         <!-- DOB section -->
         <div class="field">
           <label class="label">Date of Birth</label>
           <div class="control">
-            <input
-              class="input"
-              type="text"
-              id="dob-input"
-              placeholder="Text input"
-            />
+            <input class="input" type="text" id="dob-input" placeholder="Text input"/>
           </div>
         </div>
 
         <!-- Button section -->
-        <button class="button" id="generator">Generate</button>
-        <button class="button" id="save">Save</button>
+        <div class="block">
+          <button class="button" id="generator">Generate</button>
+          <button class="button" id="save">Save</button>
+        </div>
       </div>
 
 
@@ -104,9 +76,12 @@
 
       <!-- Tab Content for Database -->
       <div class="tab-content" id="tab-2">
+        <div class="block">
           <button class="button is-primary" type="button" id="delete-button">Delete Selected</button>
-          <div class="user-data-entry"></div>
-        <div class=""></div>
+        </div>
+        <div class="user-data-entry">
+          <!-- saved user data goes here -->
+        </div>
       </div>
 
 
@@ -121,56 +96,6 @@
     </div>
 
 
-
-
-
-
-
-
-
-
-
-
-    <!-- link to login page, only show content if login successful -->
-    <!-- <a href="login.html">Login</a> -->
-
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // JavaScript to handle tab switching
-        const tabs = document.querySelectorAll(".tabs li");
-        const tabContents = document.querySelectorAll(".tab-content");
-
-        // Hide tab contents by default
-        // tabContents.forEach((content) => {
-        //   content.style.display = "none";
-        // });
-
-        // go to login page if cancel button is pressed
-        // const cancelButton = document.getElementById("cancel");
-        // cancelButton.addEventListener("click", function (event) {
-        //   event.preventDefault();
-        //   window.location.href = "login.html";
-        // });
-
-        tabs.forEach((tab, index) => {
-          tab.addEventListener("click", () => {
-            // Hide all tab contents
-            tabContents.forEach((content) => {
-              content.style.display = "none";
-            });
-
-            // Show the selected tab content
-            tabContents[index].style.display = "block";
-
-            // Set the active tab
-            tabs.forEach((t) => {
-              t.classList.remove("is-active");
-            });
-            tab.classList.add("is-active");
-          });
-        });
-      });
-    </script>
     <!-- load renderer script -->
     <script type="module" defer src="renderer.js"></script>
   </body>

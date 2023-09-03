@@ -1,7 +1,32 @@
 document.addEventListener("DOMContentLoaded", function () {
   const saveButton = document.getElementById("save");
   const deleteButton = document.getElementById("delete-button");
-  
+  const databaseTab = document.getElementById('tab-2');
+  const tabs = document.querySelectorAll(".tabs li");
+  const tabContents = document.querySelectorAll(".tab-content");
+
+  // tab switching
+  tabs.forEach((tab, index) => {
+    tab.addEventListener("click", () => {
+      // Hide all tab contents
+      tabContents.forEach((content) => {
+        content.style.display = "none";
+      });
+
+      // Show the selected tab content
+      tabContents[index].style.display = "block";
+
+      // Set the active tab
+      tabs.forEach((t) => {
+        t.classList.remove("is-active");
+      });
+      tab.classList.add("is-active");
+    });
+  });
+
+
+
+  // save user data to local storage
   saveButton.addEventListener("click", function (event) {
     event.preventDefault();
 
@@ -30,8 +55,8 @@ document.addEventListener("DOMContentLoaded", function () {
     alert("User data saved successfully!");
 
     // Scroll to the newly added entry
-    const newUserEntry = document.querySelector('.user-data-entry:last-child');
-    newUserEntry.scrollIntoView({ behavior: 'smooth' });
+    // const newUserEntry = document.querySelector('.user-data-entry:last-child');
+    // newUserEntry.scrollIntoView({ behavior: 'smooth' });
 
     setTimeout(() => {
       location.reload(); // reload page to clear input fields
@@ -43,7 +68,6 @@ document.addEventListener("DOMContentLoaded", function () {
   
   // load user data from local storage if available
   savedUserDataArray.forEach((userData, index) => {
-    const databaseTab = document.getElementById('tab-2');
 
     // display user data entry in the 'database' tab
     const userDataEntry = document.createElement('div');
@@ -58,17 +82,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const label = document.createElement('label');
     label.appendChild(checkBox);
     label.appendChild(document.createTextNode(` Entry ${index + 1}`)); 
-    // ${userData.fullName}
 
-    // append the label to the user data entry
     userDataEntry.appendChild(label);
-  //   userDataEntry.innerHTML += `
-  //   <p>Email: ${userData.email}</p>
-  //   <p>Phone: ${userData.phoneNumber}</p>
-  //   <p>Date of Birth: ${userData.dob}</p>
-  // `;
-
-
 
     userDataEntry.innerHTML += `
       <h3 class="title">${userData.fullName}</h3>
@@ -79,9 +94,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     databaseTab.appendChild(userDataEntry);
   });
-
-
-
 
 
   // hand delete button click at the top
@@ -96,17 +108,19 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 
-  const databaseTab = document.querySelector('.tabs li:nth-child(2)');
 
 
-
+  // const databaseTab = document.querySelector('.tabs li:nth-child(2)');
 
   databaseTab.addEventListener('click', function() {
     // show the existing user data entries in the 'database' tab
-    const databaseTab = document.getElementById('tab-2');
     const userDataEntries = databaseTab.querySelectorAll('.user-data-entry');
     userDataEntries.forEach(entry => {
       entry.style.display = 'block';
     });
   });
+
+
+
+
 });

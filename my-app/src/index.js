@@ -1,6 +1,7 @@
 const { app, BrowserWindow } = require('electron');
 const electronReload = require('electron-reload');
 const path = require('path');
+const Store = require('electron-store');
 
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -25,6 +26,57 @@ const createWindow = () => {
   // Open the DevTools.
   // mainWindow.webContents.openDevTools();
 };
+
+
+
+
+
+
+
+
+
+// Initialize Electron Store
+const store = new Store();
+
+// Save user preferences
+store.set('userPreferences', {
+  theme: 'dark',
+  language: 'en'
+});
+
+// Retrieve user preferences
+const userPreferences = store.get('userPreferences');
+
+// Update a setting 
+store.set('userPreferences.theme', 'light');
+
+// Delete a setting
+store.delete('userPreferences.language');
+
+// Save profiles
+const profiles = [
+  {
+    name: 'Profile 1',  
+    settings: { /* ... */ },
+  },
+  {
+    name: 'Profile 2',
+    settings: { /* ... */ },
+  },
+];
+
+// Retrieve profiles
+const storedProfiles = store.get('profiles');
+
+
+
+
+
+
+
+
+
+
 
 
 // This method will be called when Electron has finished

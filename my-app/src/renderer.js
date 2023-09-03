@@ -2,8 +2,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const saveButton = document.getElementById("save");
   const deleteButton = document.getElementById("delete-button");
   const databaseTab = document.getElementById('tab-2');
-  const tabs = document.querySelectorAll(".tabs li");
-  const tabContents = document.querySelectorAll(".tab-content");
+
+  // const tabs = document.querySelectorAll(".tabs li");
+  // const tabContents = document.querySelectorAll(".tab-content");
   const savedUserDataArray = JSON.parse(localStorage.getItem("userDataArray")) || [];
 
 
@@ -11,23 +12,59 @@ document.addEventListener("DOMContentLoaded", function () {
   // TABS
 
   // tab switching
-  tabs.forEach((tab, index) => {
-    tab.addEventListener("click", () => {
+  // tabs.forEach((tab, index) => {
+  //   tab.addEventListener("click", () => {
+  //     // Hide all tab contents
+  //     tabContents.forEach((content) => {
+  //       content.style.display = "none";
+  //     });
+
+  //     // Show the selected tab content
+  //     tabContents[index].style.display = "block";
+
+  //     // Set the active tab
+  //     tabs.forEach((t) => {
+  //       t.classList.remove("is-active");
+  //     });
+  //     tab.classList.add("is-active");
+  //   });
+  // });
+
+
+
+
+
+  // Get all the tab links
+  const tabLinks = document.querySelectorAll('.tabs ul li a');
+
+  // Get all the tab content elements
+  const tabContents = document.querySelectorAll('.tab-content');
+
+  // Add click event listeners to the tab links
+  tabLinks.forEach(tabLink => {
+    tabLink.addEventListener('click', (e) => {
+      // Prevent the default link behavior
+      e.preventDefault();
+
+      // Remove the 'is-active' class from all tab links
+      tabLinks.forEach(link => link.classList.remove('is-active'));
+
+      // Add the 'is-active' class to the clicked tab link
+      tabLink.classList.add('is-active');
+
+      // Get the data-tab attribute value of the clicked tab link
+      const targetTab = tabLink.getAttribute('data-tab');
+
       // Hide all tab contents
-      tabContents.forEach((content) => {
-        content.style.display = "none";
-      });
+      tabContents.forEach(content => content.style.display = 'none');
 
-      // Show the selected tab content
-      tabContents[index].style.display = "block";
-
-      // Set the active tab
-      tabs.forEach((t) => {
-        t.classList.remove("is-active");
-      });
-      tab.classList.add("is-active");
+      // Show the tab content associated with the clicked tab link
+      document.getElementById(targetTab).style.display = 'block';
     });
   });
+
+// Initialize by showing the content of the active tab
+  document.querySelector('.tabs ul li.is-active a').click();
 
   
 

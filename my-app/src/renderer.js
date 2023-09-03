@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const databaseTab = document.getElementById('tab-2');
   const selectAllCheckbox = document.getElementById('select-all');
   const selectedIndexes = [];
-  // const tabs = document.querySelectorAll(".tabs li");
+  const tabs = document.querySelectorAll(".tabs li");
   // const tabContents = document.querySelectorAll(".tab-content");
   const savedUserDataArray = JSON.parse(localStorage.getItem("userDataArray")) || [];
 
@@ -13,23 +13,23 @@ document.addEventListener("DOMContentLoaded", function () {
   // TABS
 
   // tab switching
-  // tabs.forEach((tab, index) => {
-  //   tab.addEventListener("click", () => {
-  //     // Hide all tab contents
-  //     tabContents.forEach((content) => {
-  //       content.style.display = "none";
-  //     });
+  tabs.forEach((tab, index) => {
+    tab.addEventListener("click", () => {
+      // Hide all tab contents
+      tabContents.forEach((content) => {
+        content.style.display = "none";
+      });
 
-  //     // Show the selected tab content
-  //     tabContents[index].style.display = "block";
+      // Show the selected tab content
+      tabContents[index].style.display = "block";
 
-  //     // Set the active tab
-  //     tabs.forEach((t) => {
-  //       t.classList.remove("is-active");
-  //     });
-  //     tab.classList.add("is-active");
-  //   });
-  // });
+      // Set the active tab
+      tabs.forEach((t) => {
+        t.classList.remove("is-active");
+      });
+      tab.classList.add("is-active");
+    });
+  });
 
 
 
@@ -38,54 +38,56 @@ document.addEventListener("DOMContentLoaded", function () {
   // Get all the tab links
   const tabLinks = document.querySelectorAll('.tabs ul li a');
 
+
   // Get all the tab content elements
   const tabContents = document.querySelectorAll('.tab-content');
+
+  // Initialize by showing the content of the active tab
+  const activeTabLink = document.querySelector('.tabs ul li.is-active a');
+  activeTabLink.classList.add('is-active'); // Add the class to the active tab link
+  activeTabLink.click(); // Trigger the click event
+
 
   // Add click event listeners to the tab links
   tabLinks.forEach(tabLink => {
     tabLink.addEventListener('click', (e) => {
       // Prevent the default link behavior
       e.preventDefault();
-
+  
       // Remove the 'is-active' class from all tab links
       tabLinks.forEach(link => link.classList.remove('is-active'));
-
+  
       // Add the 'is-active' class to the clicked tab link
       tabLink.classList.add('is-active');
-
+  
       // Get the data-tab attribute value of the clicked tab link
       const targetTab = tabLink.getAttribute('data-tab');
-
+  
       // Hide all tab contents
       tabContents.forEach(content => content.style.display = 'none');
-
+  
       // Show the tab content associated with the clicked tab link
       document.getElementById(targetTab).style.display = 'block';
     });
   });
-
-// Initialize by showing the content of the active tab
-  document.querySelector('.tabs ul li.is-active a').click();
-
   
 
-
+              // Initialize by showing the content of the active tab
+  document.querySelector('.tabs ul li.is-active a').click();
 
 
 
   // SAVE BUTTON 
-
-  // save user data to local storage
   saveButton.addEventListener("click", function (event) {
     event.preventDefault();
 
-    // Get input values
+              // Get input values
     const fullName = document.getElementById("full-name-input").value;
     const email = document.getElementById("email-input").value;
     const phoneNumber = document.getElementById("phone-number-input").value;
     const dob = document.getElementById("dob-input").value;
 
-    // create object to store user data
+              // create object to store user data
     const userData = {
       fullName,
       email,
@@ -93,34 +95,24 @@ document.addEventListener("DOMContentLoaded", function () {
       dob,
     };
 
-    // load existing user data array from local storage
+              // load existing user data array from local storage
     const existingUserDataArray = JSON.parse(localStorage.getItem("userDataArray")) || [];
 
-    // add new user data to array
+              // add new user data to array
     existingUserDataArray.push(userData);
 
-    // save the updated array back to local storage
+              // save the updated array back to local storage
     localStorage.setItem("userDataArray", JSON.stringify(existingUserDataArray));
     alert("User data saved successfully!");
-    // Scroll to the newly added entry
-    // const newUserEntry = document.querySelector('.user-data-entry:last-child');
-    // newUserEntry.scrollIntoView({ behavior: 'smooth' });
 
+              // reload page to clear input fields
     setTimeout(() => {
-      location.reload(); // reload page to clear input fields
+      location.reload();
     }, 100);
   });
 
 
-
-
-
-
-
-
-  // DISPLAY SAVED USER DATA
-  
-  // load user data from local storage if available
+  // DISPLAY SAVED USER DATA ENTRIES
   savedUserDataArray.forEach((userData, index) => {
 
     // display user data entry in the 'database' tab
@@ -150,10 +142,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 
-
-
-
-
   // SELECT ALL CHECKBOX
   selectAllCheckbox.addEventListener('click', function() {
     const checkboxes = document.querySelectorAll('.user-data-entry input[type="checkbox"]');
@@ -169,14 +157,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     event.preventDefault();
 
-    
-    
     const selectedIndexes = Array.from(document.querySelectorAll('.user-data-entry input[type="checkbox"]:checked')).map(checkbox => parseInt(checkbox.dataset.index));
     
-    // check if all entries selected, before you delete add a message to warn
-    // if their is no entries selected, do nothing
     if (selectedIndexes.length === savedUserDataArray.length) {
-
       if (selectedIndexes.length === 0) {
         alert('Please select at least one entry to delete');
         return false;
@@ -199,15 +182,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+  // const databaseTab1 = document.querySelector('.tabs li:nth-child(2)');
 
-
-
-  // const databaseTab = document.querySelector('.tabs li:nth-child(2)');
-
-  // databaseTab.addEventListener('click', function() {
+  // databaseTab1.addEventListener('click', function() {
     
   //   // show the existing user data entries in the 'database' tab
-  //   const userDataEntries = databaseTab.querySelectorAll('.user-data-entry');
+  //   const userDataEntries = databaseTab1.querySelectorAll('.user-data-entry');
     
   //   userDataEntries.forEach(entry => {
   //     entry.style.display = 'block';

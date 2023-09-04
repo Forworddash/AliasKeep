@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const deleteButton = document.getElementById("delete-button");
   const databaseTab = document.getElementById('tab-2');
   const selectAllCheckbox = document.getElementById('select-all');
-  const selectedIndexes = [];
   const tabs = document.querySelectorAll(".tabs li");
   // const tabContents = document.querySelectorAll(".tab-content");
   const savedUserDataArray = JSON.parse(localStorage.getItem("userDataArray")) || [];
@@ -122,12 +121,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-
-
-
-
-
-
   // DISPLAY SAVED USER DATA ENTRIES
   savedUserDataArray.forEach((userData, index) => {
 
@@ -158,6 +151,8 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 
+
+
   // SELECT ALL CHECKBOX
   selectAllCheckbox.addEventListener('click', function() {
     const checkboxes = document.querySelectorAll('.user-data-entry input[type="checkbox"]');
@@ -184,31 +179,17 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!confirmDelete) return false;
       }
     }
+
+
     // filter out selected entries from the array and update local storage
     const updatedUserDataArray = savedUserDataArray.filter((userData, index) => !selectedIndexes.includes(index));
     localStorage.setItem('userDataArray', JSON.stringify(updatedUserDataArray));
+    
     location.reload(); // reload page to reflect changes
     
     return false;
   });
 
 
-
-
-
-
-
-  // const databaseTab1 = document.querySelector('.tabs li:nth-child(2)');
-
-  // databaseTab1.addEventListener('click', function() {
-    
-  //   // show the existing user data entries in the 'database' tab
-  //   const userDataEntries = databaseTab1.querySelectorAll('.user-data-entry');
-    
-  //   userDataEntries.forEach(entry => {
-  //     entry.style.display = 'block';
-  //   });
-
-  // });
 
 });

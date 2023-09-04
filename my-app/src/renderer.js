@@ -11,8 +11,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   // TABS
-
-  // tab switching
   tabs.forEach((tab, index) => {
     tab.addEventListener("click", () => {
       // Hide all tab contents
@@ -30,8 +28,6 @@ document.addEventListener("DOMContentLoaded", function () {
       tab.classList.add("is-active");
     });
   });
-
-
 
 
 
@@ -72,8 +68,15 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   
 
-              // Initialize by showing the content of the active tab
+  // Initialize by showing the content of the active tab
   document.querySelector('.tabs ul li.is-active a').click();
+
+
+
+
+
+
+
 
 
 
@@ -81,13 +84,13 @@ document.addEventListener("DOMContentLoaded", function () {
   saveButton.addEventListener("click", function (event) {
     event.preventDefault();
 
-              // Get input values
+    // Get input values
     const fullName = document.getElementById("full-name-input").value;
     const email = document.getElementById("email-input").value;
     const phoneNumber = document.getElementById("phone-number-input").value;
     const dob = document.getElementById("dob-input").value;
 
-              // create object to store user data
+    // create object to store user data
     const userData = {
       fullName,
       email,
@@ -95,21 +98,34 @@ document.addEventListener("DOMContentLoaded", function () {
       dob,
     };
 
-              // load existing user data array from local storage
+    // load existing user data array from local storage
     const existingUserDataArray = JSON.parse(localStorage.getItem("userDataArray")) || [];
 
-              // add new user data to array
+    // add new user data to array
     existingUserDataArray.push(userData);
 
-              // save the updated array back to local storage
+    // save the updated array back to local storage
     localStorage.setItem("userDataArray", JSON.stringify(existingUserDataArray));
     alert("User data saved successfully!");
 
               // reload page to clear input fields
-    setTimeout(() => {
-      location.reload();
-    }, 100);
+    // setTimeout(() => {
+    location.reload();
+    // }, 10);
   });
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   // DISPLAY SAVED USER DATA ENTRIES

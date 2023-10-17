@@ -18,7 +18,17 @@ html,body {
 }
 
 /* combine the top 2 css rules*/
-html.dark-mode, body.dark-mode {
+/* html.dark-mode, body.dark-mode {
   background-color: #121212;
+  color: #eee;
+} */
+
+html.dark-mode {
+  background-color: purple;
+  color: #eee;
+}
+
+body.dark-mode {
+  background-color: purple;
   color: #eee;
 }

@@ -34,40 +34,38 @@ const createWindow = () => {
 
 
 
-// Initialize Electron Store
-const store = new Store();
+// // Initialize Electron Store
+// const store = new Store();
 
-// Save user preferences
-store.set('userPreferences', {
-  theme: 'dark',
-  language: 'en'
-});
+// // // Save user preferences
+// store.set('userPreferences', {
+//   theme: 'dark',
+//   language: 'en'
+// });
 
-// Retrieve user preferences
-const userPreferences = store.get('userPreferences');
+// // // Retrieve user preferences
+// const userPreferences = store.get('userPreferences');
 
-// Update a setting 
-store.set('userPreferences.theme', 'light');
+// // // Update a setting 
+// store.set('userPreferences.theme', 'light');
 
-// Delete a setting
-store.delete('userPreferences.language');
+// // // Delete a setting
+// store.delete('userPreferences.language');
 
-// Save profiles
-const profiles = [
-  {
-    name: 'Profile 1',  
-    settings: { /* ... */ },
-  },
-  {
-    name: 'Profile 2',
-    settings: { /* ... */ },
-  },
-];
+// // // Save profiles
+// const profiles = [
+//   {
+//     name: 'Profile 1',  
+//     settings: { /* ... */ },
+//   },
+//   {
+//     name: 'Profile 2',
+//     settings: { /* ... */ },
+//   },
+// ];
 
-// Retrieve profiles
-const storedProfiles = store.get('profiles');
-
-
+// // // Retrieve profiles
+// const storedProfiles = store.get('profiles');
 
 
 

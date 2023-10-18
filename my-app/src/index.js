@@ -17,7 +17,6 @@ const createWindow = () => {
       preload: path.join(__dirname, 'preload.js'),
       nodeIntegration:true,
     },
-    // backgroundColor: 'black',
   });
 
   // and load the login.html of the app.

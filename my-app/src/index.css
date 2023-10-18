@@ -4,21 +4,32 @@ body {
   margin: auto;
   max-width: 38rem;
   padding: 2rem;
-  /* background-color: black; */
 }
 
 .tab-content {
   display: none;
 }
 
-
 html,body {
   background-color: #fff;
   color: #222;
 }
 
-/* combine the top 2 css rules*/
 html.dark-mode, body.dark-mode {
   background-color: #121212;
   color: #eee;
+}
+
+
+.input {
+  background-color: #708090;
+  
+}
+
+.control {
+  background-color: #708090;
+}
+
+.user-data-entry {
+  background-color: #708090;
 }

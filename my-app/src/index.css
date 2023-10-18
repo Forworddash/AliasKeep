@@ -18,18 +18,16 @@ html,body {
 html.dark-mode, body.dark-mode {
   background-color: #121212;
   color: #eee;
-}
+} */
 
-
+/* input boxes DARK MODE */
 .input {
   background-color: #708090;
   
 }
 
-.control {
-  background-color: #708090;
-}
-
+/* user entries DARK MODE */
 .user-data-entry {
   background-color: #708090;
+  color: white;
 }

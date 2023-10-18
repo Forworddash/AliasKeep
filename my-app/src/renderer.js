@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   const saveButton = document.getElementById("save");
+  const generateButton = document.getElementById("generator");
   const settingsSaveButton = document.getElementById("save-settings");
   const deleteButton = document.getElementById("delete-button");
   const databaseTab = document.getElementById("tab-2");
@@ -64,6 +65,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Initialize by showing the content of the active tab
   document.querySelector(".tabs ul li.is-active a").click();
+
+
+
+
+
+
+
+  // GENERATE BUTTON
+  generateButton.addEventListener("click", function (event) {
+    event.preventDefault();
+
+    // generate a random name using Faker
+    const randomName = faker.name.findName();
+
+    // set the generated name in the name input field
+    document.getElementById("full-name-input").value = randomName;
+  });
+
+
+
+
+
 
   // SAVE BUTTON
   saveButton.addEventListener("click", function (event) {

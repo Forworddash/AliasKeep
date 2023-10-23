@@ -78,6 +78,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // generate a random name using Faker
     const randomName = faker.name.findName();
+    // generate a random email using Faker
+    const randomEmail = faker.internet.email();
 
     // set the generated name in the name input field
     document.getElementById("full-name-input").value = randomName;

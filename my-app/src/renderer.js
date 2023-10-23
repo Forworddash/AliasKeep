@@ -67,7 +67,18 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelector(".tabs ul li.is-active a").click();
 
 
+  // Generate a random date of birth within a specific age range
+  function generateRandomDOB(minAge, maxAge) {
+    const currentYear = new Date().getFullYear();
+    const minYear = currentYear - maxAge;
+    const maxYear = currentYear - minAge;
+    const birthYear = faker.random.number({ min: minYear, max: maxYear });
+    const birthMonth = faker.random.number({ min: 1, max: 12 });
+    const birthDay = faker.random.number({ min: 1, max: 28 }); // Adjust max day as needed
 
+    const formattedDOB = `${birthYear}-${String(birthMonth).padStart(2, '0')}-${String(birthDay).padStart(2, '0')}`;
+    return formattedDOB;
+  }
 
 
 
@@ -80,9 +91,26 @@ document.addEventListener("DOMContentLoaded", function () {
     const randomName = faker.name.findName();
     // generate a random email using Faker
     const randomEmail = faker.internet.email();
+    // // generate a random phone number using Faker
+    const randomPhoneNumber = faker.phone.phoneNumber();
+    // // generate a random date of birth using Faker
+    const randomDOB = generateRandomDOB(18, 64); 
+    
+    // generate random sex using Faker
+    // const randomSex = faker.person.sexType();
+
 
     // set the generated name in the name input field
     document.getElementById("full-name-input").value = randomName;
+    // set the generated email in the email input field
+    document.getElementById("email-input").value = randomEmail;
+    // // set the generated phone number in the phone number input field
+    document.getElementById("phone-number-input").value = randomPhoneNumber;
+    // // set the generated date of birth in the date of birth input field
+    document.getElementById("dob-input").value = randomDOB;
+    // set the generated sex to the gender selection field
+    // document.getElementById("gender-input").value = randomSex;
+
   });
 
 

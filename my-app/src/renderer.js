@@ -95,9 +95,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const randomPhoneNumber = faker.phone.phoneNumber();
     // // generate a random date of birth using Faker
     const randomDOB = generateRandomDOB(18, 64); 
-    
-    // generate random sex using Faker
-    // const randomSex = faker.person.sexType();
+    // generate random sex in an array using Faker
+    const genderOptions = ["Male", "Female", "Other"];
+    const randomSex = faker.random.arrayElement(genderOptions);
 
 
     // set the generated name in the name input field
@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // // set the generated date of birth in the date of birth input field
     document.getElementById("dob-input").value = randomDOB;
     // set the generated sex to the gender selection field
-    // document.getElementById("gender-input").value = randomSex;
+    document.getElementById("gender-input").value = randomSex;
 
   });
 

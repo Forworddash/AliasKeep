@@ -127,6 +127,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const email = document.getElementById("email-input").value;
     const phoneNumber = document.getElementById("phone-number-input").value;
     const dob = document.getElementById("dob-input").value;
+    const sex = document.getElementById("gender-input").value;
 
     // create object to store user data
     const userData = {
@@ -134,6 +135,7 @@ document.addEventListener("DOMContentLoaded", function () {
       email,
       phoneNumber,
       dob,
+      sex,
     };
 
     // load existing user data array from local storage
@@ -156,9 +158,12 @@ document.addEventListener("DOMContentLoaded", function () {
     // }, 10);
   });
 
-  // DISPLAY SAVED USER DATA ENTRIES
-  savedUserDataArray.forEach((userData, index) => {
-    // display user data entry in the 'database' tab
+  // reverse the order of the array so that the most recent entry is displayed first
+  const reversedUserDataArray = savedUserDataArray.reverse();
+
+  // Display the reversed user data entries
+  reversedUserDataArray.forEach((userData, index) => {
+
     const userDataEntry = document.createElement("div");
     userDataEntry.classList.add("user-data-entry");
     userDataEntry.classList.add("box");
@@ -179,10 +184,43 @@ document.addEventListener("DOMContentLoaded", function () {
       <p>Email: ${userData.email}</p>
       <p>Phone: ${userData.phoneNumber}</p>
       <p>Date of Birth: ${userData.dob}</p>
+      <p>Gender: ${userData.sex}</p>
     `;
 
     databaseTab.appendChild(userDataEntry);
+
   });
+
+
+
+  // DISPLAY SAVED USER DATA ENTRIES
+  // savedUserDataArray.forEach((userData, index) => {
+  //   // display user data entry in the 'database' tab
+  //   const userDataEntry = document.createElement("div");
+  //   userDataEntry.classList.add("user-data-entry");
+  //   userDataEntry.classList.add("box");
+
+  //   // create check box and label for each entry
+  //   const checkBox = document.createElement("input");
+  //   checkBox.type = "checkbox";
+  //   checkBox.dataset.index = index;
+  //   const label = document.createElement("label");
+
+  //   label.appendChild(checkBox);
+  //   label.appendChild(document.createTextNode(` Entry ${index + 1}`));
+
+  //   userDataEntry.appendChild(label);
+
+  //   userDataEntry.innerHTML += `
+  //     <h3 class="title">${userData.fullName}</h3>
+  //     <p>Email: ${userData.email}</p>
+  //     <p>Phone: ${userData.phoneNumber}</p>
+  //     <p>Date of Birth: ${userData.dob}</p>
+  //     <p>Gender: ${userData.sex}</p>
+  //   `;
+
+  //   databaseTab.appendChild(userDataEntry);
+  // });
 
   // SELECT ALL CHECKBOX
   selectAllCheckbox.addEventListener("click", function () {

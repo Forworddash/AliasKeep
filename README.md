@@ -10,7 +10,7 @@ run 'npm start'
 
 ## Login Page
 Login Page has default credentials set, username: admin | password: password
-<img width="569" alt="login screen" src="https://github.com/Forworddash/AliasKeep/assets/59719097/4b091f74-840b-496c-9665-26e7adbfcb6b">
+<img width="579" alt="login" src="https://github.com/Forworddash/AliasKeep/assets/59719097/5477f028-5a7c-4e5a-bb2c-b80eb52ccf2c">
 
 
 ## Account Creation Page
@@ -21,6 +21,5 @@ passed onto the login page.
 
 ## Home Page
 Home page contains input boxes that will store an array of info:
-Full name | Email | Phone number | Date of birth
-<img width="546" alt="main screen" src="https://github.com/Forworddash/AliasKeep/assets/59719097/78020d79-bf61-47e5-8c98-e695f7b741a8">
-
+Full name | Email | Phone number | Date of birth | Gender
+<img width="580" alt="generate2" src="https://github.com/Forworddash/AliasKeep/assets/59719097/e41f1b81-8d9a-4b44-9e6f-0a6f04a3a0b5">

@@ -10,6 +10,7 @@ run 'npm start'
 
 ## Login Page
 Login Page has default credentials set, username: admin | password: password
+
 <img width="579" alt="login" src="https://github.com/Forworddash/AliasKeep/assets/59719097/5477f028-5a7c-4e5a-bb2c-b80eb52ccf2c">
 
 
@@ -23,15 +24,19 @@ passed onto the login page.
 ## Home Page
 Home page contains input boxes that will store an array of info:
 Full name | Email | Phone number | Date of birth | Gender
+
 <img width="580" alt="generate2" src="https://github.com/Forworddash/AliasKeep/assets/59719097/e41f1b81-8d9a-4b44-9e6f-0a6f04a3a0b5">
 
 
 ## Database Entries
-This tab will store any saved data from the generate tab
+This tab will store any saved data from the generate tab.
+
 <img width="578" alt="saves" src="https://github.com/Forworddash/AliasKeep/assets/59719097/e479086b-69ef-4907-ae53-088acc4c9faa">
 
+
 ## Settings Page
-This page has dark mode, language selection, Delete all user data
+This page has dark mode, language selection, Delete all user data.
+
 <img width="567" alt="settings" src="https://github.com/Forworddash/AliasKeep/assets/59719097/65f6dc97-3648-453c-a273-65fcd59b7522">
 
 

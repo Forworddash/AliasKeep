@@ -244,11 +244,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (selectedIndexes.length === savedUserDataArray.length) {
       if (selectedIndexes.length === 0) {
-        alert("Please select at least one entry to delete");
+        toastr.warning("Please select at least one entry to delete");
         return false;
       } else {
-        const confirmDelete = confirm(
-          "Are you sure you want to delete the selected entries?"
+        const confirmDelete = toastr.info(
+          "Are you sure you want to delete all your entries?"
         );
         if (!confirmDelete) return false;
       }

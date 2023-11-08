@@ -16,13 +16,13 @@ document.addEventListener("DOMContentLoaded", function () {
       const password = document.getElementById("password").value;
   
       if (username === defaultUsername && password === defaultPassword || username === storedUsername && password === storedPassword) {
-        alert("Login successful!");
+        toastr.success("Login successful!");
         window.location.href = "index.html"; // Redirect to the main app page after successful login.
       } else {
-        alert("Invalid username or password. Please try again.");
+        toastr.warning("Invalid username or password. Please try again.");
       }
     });
-
+    // Display an info toast with no title
     // event listener for create account button with id of 'create'
     const createButton = document.getElementById("create");
     createButton.addEventListener("click", function (event) {

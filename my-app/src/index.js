@@ -3,7 +3,6 @@ const electronReload = require('electron-reload');
 const path = require('path');
 const Store = require('electron-store');
 
-
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
   app.quit();

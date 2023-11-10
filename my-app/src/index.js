@@ -28,10 +28,6 @@ const createWindow = () => {
 
 
 
-
-
-
-
 // // Initialize Electron Store
 // const store = new Store();
 

@@ -1,3 +1,13 @@
+// Customize Toastr options if needed
+// toastr.options = {
+//   closeButton: true,
+//   progressBar: true,
+//   preventDuplicates: true,
+//   positionClass: 'toast-top-right',
+// };
+
+
+
 document.addEventListener("DOMContentLoaded", function () {
   const saveButton = document.getElementById("save");
   const generateButton = document.getElementById("generator");
@@ -6,6 +16,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const databaseTab = document.getElementById("tab-2");
   const selectAllCheckbox = document.getElementById("select-all");
   const tabs = document.querySelectorAll(".tabs li");
+  // const toastr = require('toastr');
+  window.toastr = toastr; 
+
   // const tabContents = document.querySelectorAll(".tab-content");
   const savedUserDataArray =
     JSON.parse(localStorage.getItem("userDataArray")) || [];
@@ -81,8 +94,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 
-
-
   // GENERATE BUTTON
   generateButton.addEventListener("click", function (event) {
     event.preventDefault();
@@ -150,8 +161,8 @@ document.addEventListener("DOMContentLoaded", function () {
       "userDataArray",
       JSON.stringify(existingUserDataArray)
     );
-    alert("User data saved successfully!");
-
+    // alert("User data saved successfully!");
+    toastr.success('The process has been saved.', 'Success');
     // reload page to clear input fields
     // setTimeout(() => {
     location.reload();
@@ -315,7 +326,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     localStorage.setItem("settings", JSON.stringify(settings));
 
-    alert("Settings saved successfully!");
+    toastr.info("Settings saved successfully!");
   });
 
 

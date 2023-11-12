@@ -28,40 +28,6 @@ const createWindow = () => {
 
 
 
-// // Initialize Electron Store
-// const store = new Store();
-
-// // // Save user preferences
-// store.set('userPreferences', {
-//   theme: 'dark',
-//   language: 'en'
-// });
-
-// // // Retrieve user preferences
-// const userPreferences = store.get('userPreferences');
-
-// // // Update a setting 
-// store.set('userPreferences.theme', 'light');
-
-// // // Delete a setting
-// store.delete('userPreferences.language');
-
-// // // Save profiles
-// const profiles = [
-//   {
-//     name: 'Profile 1',  
-//     settings: { /* ... */ },
-//   },
-//   {
-//     name: 'Profile 2',
-//     settings: { /* ... */ },
-//   },
-// ];
-
-// // // Retrieve profiles
-// const storedProfiles = store.get('profiles');
-
-
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.

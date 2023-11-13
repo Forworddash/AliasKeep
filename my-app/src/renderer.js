@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const selectAllCheckbox = document.getElementById("select-all");
   const tabs = document.querySelectorAll(".tabs li");
   // const toastr = require('toastr');
-  window.toastr = toastr; 
+  // window.toastr = toastr; 
 
   // const tabContents = document.querySelectorAll(".tab-content");
   const savedUserDataArray =

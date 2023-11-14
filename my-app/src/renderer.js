@@ -243,7 +243,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // DELETE BUTTON
+  // DELETE BUTTON FUNCTIONALITY
   deleteButton.addEventListener("click", function (event) {
     event.preventDefault();
 
@@ -278,7 +278,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Settings
 
-  // Dark Mode
+  // Dark Mode Toggle
   const darkModeToggle = document.getElementById("dark-mode-toggle");
 
   // Check for dark mode preference

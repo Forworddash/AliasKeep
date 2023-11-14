@@ -203,36 +203,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 
-
-  // DISPLAY SAVED USER DATA ENTRIES
-  // savedUserDataArray.forEach((userData, index) => {
-  //   // display user data entry in the 'database' tab
-  //   const userDataEntry = document.createElement("div");
-  //   userDataEntry.classList.add("user-data-entry");
-  //   userDataEntry.classList.add("box");
-
-  //   // create check box and label for each entry
-  //   const checkBox = document.createElement("input");
-  //   checkBox.type = "checkbox";
-  //   checkBox.dataset.index = index;
-  //   const label = document.createElement("label");
-
-  //   label.appendChild(checkBox);
-  //   label.appendChild(document.createTextNode(` Entry ${index + 1}`));
-
-  //   userDataEntry.appendChild(label);
-
-  //   userDataEntry.innerHTML += `
-  //     <h3 class="title">${userData.fullName}</h3>
-  //     <p>Email: ${userData.email}</p>
-  //     <p>Phone: ${userData.phoneNumber}</p>
-  //     <p>Date of Birth: ${userData.dob}</p>
-  //     <p>Gender: ${userData.sex}</p>
-  //   `;
-
-  //   databaseTab.appendChild(userDataEntry);
-  // });
-
   // SELECT ALL CHECKBOX
   selectAllCheckbox.addEventListener("click", function () {
     const checkboxes = document.querySelectorAll(

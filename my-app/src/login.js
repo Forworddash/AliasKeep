@@ -20,8 +20,10 @@ document.addEventListener("DOMContentLoaded", function () {
   
       if (canLogin) {
         if (username === defaultUsername && password === defaultPassword || username === storedUsername && password === storedPassword) {
-          // toastr.success("Login successful!");
-          window.location.href = "index.html"; // Redirect to the main app page after successful login.
+          toastr.success("Login successful!");
+          setTimeout(function () {
+            window.location.href = "index.html"; // Redirect to the main app page after successful login.
+          }, 1000);
         } else {
           toastr.warning("Invalid username or password. Please try again. You have " + passwordAttempts + " attempts remaining.");
           // increments password attempts

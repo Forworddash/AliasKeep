@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
         window.location.href = "login.html"; // Redirect to the login page after successful account creation.
       } else {
         // toastr.warning("Passwords do not match. Please try again.");
-        alert("Passwords do not match. Please try again.");
+        toastr.warning("Passwords do not match. Please try again.");
 
       }
     });

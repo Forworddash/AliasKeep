@@ -18,11 +18,10 @@ document.addEventListener("DOMContentLoaded", function () {
   
       if (username === defaultUsername && password === defaultPassword || username === storedUsername && password === storedPassword) {
         // toastr.success("Login successful!");
-        alert("Login successful!");
         window.location.href = "index.html"; // Redirect to the main app page after successful login.
       } else {
         // toastr.warning("Invalid username or password. Please try again.");
-        alert("Invalid username or password. Please try again.");
+        toastr.warning("Invalid username or password. Please try again.");
       }
     });
 

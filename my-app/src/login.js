@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
     
     loginForm.addEventListener("submit", function (event) {
       event.preventDefault();
+
   
       const username = document.getElementById("username").value;
       const password = document.getElementById("password").value;
@@ -24,6 +25,14 @@ document.addEventListener("DOMContentLoaded", function () {
         alert("Invalid username or password. Please try again.");
       }
     });
+
+    // toast test script
+    const toastButton = document.getElementById("test-toast");
+    toastButton.addEventListener("click", function (event) {
+      event.preventDefault();
+      toastr.info("This is a toast test!");
+    });
+
     // Display an info toast with no title
     // event listener for create account button with id of 'create'
     const createButton = document.getElementById("create");

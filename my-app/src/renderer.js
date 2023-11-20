@@ -163,12 +163,12 @@ document.addEventListener("DOMContentLoaded", function () {
     );
     // alert("User data saved successfully!");
     // toastr.success('The process has been saved.', 'Success');
-    alert('The process has been saved.', 'Success');
+    toastr.success('The process has been saved.', 'Success');
 
     // reload page to clear input fields
-    // setTimeout(() => {
-    location.reload();
-    // }, 10);
+    setTimeout(() => {
+      location.reload();
+    }, 1000);
   });
 
   // reverse the order of the array so that the most recent entry is displayed first
@@ -228,8 +228,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (selectedIndexes.length === savedUserDataArray.length) {
       if (selectedIndexes.length === 0) {
         // toastr.warning("Please select at least one entry to delete");
-        alert("Please select at least one entry to delete");
-
+        toastr.error("Please select at least one entry to delete");
         return false;
       } else {
         // const confirmDelete = toastr.info(
@@ -247,9 +246,7 @@ document.addEventListener("DOMContentLoaded", function () {
       (userData, index) => !selectedIndexes.includes(index)
     );
     localStorage.setItem("userDataArray", JSON.stringify(updatedUserDataArray));
-
     location.reload(); // reload page to reflect changes
-
     return false;
   });
 
@@ -303,9 +300,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     localStorage.setItem("settings", JSON.stringify(settings));
 
-    // toastr.info("Settings saved successfully!");
-    alert("Settings saved successfully!");
-
+    toastr.success("Settings saved successfully!");
   });
 
 

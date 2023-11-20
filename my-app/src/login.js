@@ -8,21 +8,36 @@ document.addEventListener("DOMContentLoaded", function () {
     // Set your default username and password
     const defaultUsername = "admin";
     const defaultPassword = "password";
+    let passwordAttempts = 3;
+    let canLogin = true;
+    const loginButton = document.getElementById("login");
     
     loginForm.addEventListener("submit", function (event) {
       event.preventDefault();
 
-  
       const username = document.getElementById("username").value;
       const password = document.getElementById("password").value;
   
-      if (username === defaultUsername && password === defaultPassword || username === storedUsername && password === storedPassword) {
-        // toastr.success("Login successful!");
-        window.location.href = "index.html"; // Redirect to the main app page after successful login.
-      } else {
-        // toastr.warning("Invalid username or password. Please try again.");
-        toastr.warning("Invalid username or password. Please try again.");
+      if (canLogin) {
+        if (username === defaultUsername && password === defaultPassword || username === storedUsername && password === storedPassword) {
+          // toastr.success("Login successful!");
+          window.location.href = "index.html"; // Redirect to the main app page after successful login.
+        } else {
+          toastr.warning("Invalid username or password. Please try again. You have " + passwordAttempts + " attempts remaining.");
+          // increments password attempts
+          passwordAttempts--;
+        }
+        if (passwordAttempts === 0) {
+          alert("Too many failed login attempts. Please try again later.");
+          canLogin = false;
+        }
       }
+
+      // disable login button if too many failed login attempts
+      if (!canLogin) {
+        loginButton.disable = true;
+      }
+
     });
 
     // toast test script

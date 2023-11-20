@@ -11,7 +11,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Match both passwords and set account to true if they match and username and password are not empty
       if (createdPassword === password2 && createdUsername != "" && createdPassword != "") {
-        toastr.success("Account created succesfully, redirecting to login page!");
+        // toastr.success("Account created succesfully, redirecting to login page!");
+        alert("Account created succesfully, redirecting to login page!");
+
         account = true;
 
         // Store username and password in local storage
@@ -19,7 +21,9 @@ document.addEventListener("DOMContentLoaded", function () {
         localStorage.setItem("createdPassword", createdPassword);
         window.location.href = "login.html"; // Redirect to the login page after successful account creation.
       } else {
-        toastr.warning("Passwords do not match. Please try again.");
+        // toastr.warning("Passwords do not match. Please try again.");
+        alert("Passwords do not match. Please try again.");
+
       }
     });
 

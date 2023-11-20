@@ -162,7 +162,9 @@ document.addEventListener("DOMContentLoaded", function () {
       JSON.stringify(existingUserDataArray)
     );
     // alert("User data saved successfully!");
-    toastr.success('The process has been saved.', 'Success');
+    // toastr.success('The process has been saved.', 'Success');
+    alert('The process has been saved.', 'Success');
+
     // reload page to clear input fields
     // setTimeout(() => {
     location.reload();
@@ -225,10 +227,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (selectedIndexes.length === savedUserDataArray.length) {
       if (selectedIndexes.length === 0) {
-        toastr.warning("Please select at least one entry to delete");
+        // toastr.warning("Please select at least one entry to delete");
+        alert("Please select at least one entry to delete");
+
         return false;
       } else {
-        const confirmDelete = toastr.info(
+        // const confirmDelete = toastr.info(
+        //   "Are you sure you want to delete all your entries?"
+        // );
+        const confirmDelete = alert(
           "Are you sure you want to delete all your entries?"
         );
         if (!confirmDelete) return false;
@@ -296,7 +303,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     localStorage.setItem("settings", JSON.stringify(settings));
 
-    toastr.info("Settings saved successfully!");
+    // toastr.info("Settings saved successfully!");
+    alert("Settings saved successfully!");
+
   });
 
 

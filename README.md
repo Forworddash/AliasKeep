@@ -40,3 +40,5 @@ This page has dark mode, language selection, Delete all user data.
 <img width="567" alt="settings" src="https://github.com/Forworddash/AliasKeep/assets/59719097/65f6dc97-3648-453c-a273-65fcd59b7522">
 
 
+## Current issues
+- Data is not stored on seperate accounts. If you create 2 accounts, you can see all the stored data between them

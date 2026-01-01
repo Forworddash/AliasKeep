@@ -1,26 +1,19 @@
 module.exports = {
   packagerConfig: {
     asar: true,
-    // ...other packagerConfig options
-    packageJSONConfig: {
-      name: "alias-keep", // Replace with a valid package ID (e.g., lowercase and hyphen-separated)
-      productName: "Alias Keep",
-      version: "1.0.0",
-      description: "My Electron application description",
-      author: {
-        name: "samuel",
-        email: "samuel@samuelbaker.ca"
-      },
-      // ...other package.json properties
-    },
+    appBundleId: 'com.aliaskeep.app',
+    appCategoryType: 'public.app-category.utilities',
+    name: 'alias-keep',
+    executableName: 'alias-keep',
   },
   rebuildConfig: {},
   makers: [
     {
       name: '@electron-forge/maker-squirrel',
       config: {
-        name: 'alias-keep', // Replace with your package name
-        platform: 'win32',
+        name: 'alias-keep',
+        authors: 'Sam',
+        description: 'Secure local alias generator with encrypted storage',
       },
     },
     {
@@ -29,11 +22,24 @@ module.exports = {
     },
     {
       name: '@electron-forge/maker-deb',
-      config: {},
+      config: {
+        options: {
+          maintainer: 'Sam',
+          homepage: 'https://github.com/Forworddash/AliasKeep',
+          categories: ['Utility'],
+          description: 'Secure local alias generator with encrypted storage - no data collection',
+        },
+      },
     },
     {
       name: '@electron-forge/maker-rpm',
-      config: {},
+      config: {
+        options: {
+          homepage: 'https://github.com/Forworddash/AliasKeep',
+          categories: ['Utility'],
+          description: 'Secure local alias generator with encrypted storage - no data collection',
+        },
+      },
     },
   ],
   plugins: [

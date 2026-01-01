@@ -1,8 +1,8 @@
 {
-  "name": "Alias-Keep 1.0.0",
-  "productName": "Alias-Keep 1.0.0",
+  "name": "alias-keep",
+  "productName": "Alias Keep",
   "version": "1.0.0",
-  "description": "My Electron application description",
+  "description": "Secure local alias generator with encrypted storage - no data collection",
   "main": "src/index.js",
   "scripts": {
     "start": "electron-forge start",
@@ -13,8 +13,8 @@
   },
   "keywords": [],
   "author": {
-    "name": "samuel",
-    "email": "samuel@samuelbaker.ca"
+    "name": "sam",
+    "email": "moosword@proton.me"
   },
   "license": "MIT",
   "dependencies": {

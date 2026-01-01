@@ -21,7 +21,66 @@
     <link rel="stylesheet" href="../node_modules/toastr/build/toastr.css" />
   </head>
   <body>
-    <div class="container is-fluid">
+    
+    <!-- Password Setup/Login Modal -->
+    <div class="modal" id="password-modal">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title" id="modal-title">Secure Your Vault</p>
+        </header>
+        <section class="modal-card-body">
+          <div id="setup-form">
+            <div class="content">
+              <p>Create a strong master password to encrypt all your data locally. This password:</p>
+              <ul>
+                <li>Never leaves your device</li>
+                <li>Encrypts all data with AES-256-GCM</li>
+                <li>Cannot be recovered if forgotten</li>
+              </ul>
+            </div>
+            <div class="field">
+              <label class="label">Master Password</label>
+              <div class="control">
+                <input class="input" type="password" id="setup-password" placeholder="Enter master password" minlength="8">
+              </div>
+              <p class="help">Minimum 8 characters, use a strong password</p>
+            </div>
+            <div class="field">
+              <label class="label">Confirm Password</label>
+              <div class="control">
+                <input class="input" type="password" id="setup-password-confirm" placeholder="Confirm password">
+              </div>
+            </div>
+            <div class="field">
+              <div class="control">
+                <button class="button is-primary is-fullwidth" id="setup-vault-btn">Create Secure Vault</button>
+              </div>
+            </div>
+          </div>
+          
+          <div id="unlock-form" style="display: none;">
+            <div class="content">
+              <p>Enter your master password to unlock your encrypted vault.</p>
+            </div>
+            <div class="field">
+              <label class="label">Master Password</label>
+              <div class="control">
+                <input class="input" type="password" id="unlock-password" placeholder="Enter master password">
+              </div>
+              <p class="help is-danger" id="unlock-error" style="display: none;">Incorrect password</p>
+            </div>
+            <div class="field">
+              <div class="control">
+                <button class="button is-primary is-fullwidth" id="unlock-vault-btn">Unlock Vault</button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <div class="container is-fluid" id="main-content" style="display: none;">
       
       <!-- Tabs section -->
       <div class="tabs">
@@ -146,24 +205,69 @@
             </div>
           </div>
 
+          <!-- Change Password -->
+          <div class="field">
+            <label class="label">Change Master Password</label>
+            <div class="control">
+              <button class="button is-warning" id="change-password-btn">Change Password</button>
+            </div>
+          </div>
+
           <!-- Third option -->
           <div class="field">
-            <label class="checkbox">
-              <input type="checkbox" id="setting-3">
-              Delete All User Data
-            </label>
+            <label class="label">Danger Zone</label>
+            <button class="button is-danger" id="delete-all-data-btn">Delete All Data & Reset Vault</button>
+            <p class="help">This will permanently delete all encrypted data and require you to create a new password.</p>
           </div>
       
           <!-- Save settings button -->
           <div class="block">
-            <button class="button is-primary" type="button" id="save-settings">Save</button>
+            <button class="button is-primary" type="button" id="save-settings">Save Settings</button>
           </div>
         </div>
       </div>
 
     </div>
     
+    <!-- Change Password Modal -->
+    <div class="modal" id="change-password-modal">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Change Master Password</p>
+          <button class="delete" aria-label="close" id="close-change-password"></button>
+        </header>
+        <section class="modal-card-body">
+          <div class="field">
+            <label class="label">Current Password</label>
+            <div class="control">
+              <input class="input" type="password" id="current-password" placeholder="Enter current password">
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">New Password</label>
+            <div class="control">
+              <input class="input" type="password" id="new-password" placeholder="Enter new password" minlength="8">
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Confirm New Password</label>
+            <div class="control">
+              <input class="input" type="password" id="new-password-confirm" placeholder="Confirm new password">
+            </div>
+          </div>
+          <p class="help is-danger" id="change-password-error" style="display: none;"></p>
+        </section>
+        <footer class="modal-card-foot">
+          <button class="button is-primary" id="confirm-change-password">Change Password</button>
+          <button class="button" id="cancel-change-password">Cancel</button>
+        </footer>
+      </div>
+    </div>
+    
+    
     <!-- load renderer script -->
+    <script src="crypto.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="../node_modules/toastr/build/toastr.min.js"></script>
     <script type="module" defer src="renderer.js"></script>

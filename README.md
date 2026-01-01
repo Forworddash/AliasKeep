@@ -6,6 +6,7 @@ The application features a user-friendly interface with different tabs for manag
 
 # Instructions
 Open root directory
+run 'npm install'
 run 'npm start'
 
 # Login Page
